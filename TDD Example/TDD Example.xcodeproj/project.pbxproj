@@ -19,6 +19,7 @@
 		028AB36123D9DEBA0098DC2A /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028AB36023D9DEBA0098DC2A /* Dynamic.swift */; };
 		028AB36523D9F19A0098DC2A /* TVShowViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028AB36423D9F19A0098DC2A /* TVShowViewModelTests.swift */; };
 		028AB36723D9F1AF0098DC2A /* TVShowViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028AB36623D9F1AF0098DC2A /* TVShowViewControllerTests.swift */; };
+		028AB36923D9F3AB0098DC2A /* tvshows.json in Resources */ = {isa = PBXBuildFile; fileRef = 028AB36823D9F3AB0098DC2A /* tvshows.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +49,7 @@
 		028AB36023D9DEBA0098DC2A /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
 		028AB36423D9F19A0098DC2A /* TVShowViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowViewModelTests.swift; sourceTree = "<group>"; };
 		028AB36623D9F1AF0098DC2A /* TVShowViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowViewControllerTests.swift; sourceTree = "<group>"; };
+		028AB36823D9F3AB0098DC2A /* tvshows.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tvshows.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +135,7 @@
 				028AB33C23D9DCED0098DC2A /* LaunchScreen.storyboard */,
 				028AB33F23D9DCED0098DC2A /* Info.plist */,
 				028AB36023D9DEBA0098DC2A /* Dynamic.swift */,
+				028AB36823D9F3AB0098DC2A /* tvshows.json */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -237,6 +240,7 @@
 			files = (
 				028AB33E23D9DCED0098DC2A /* LaunchScreen.storyboard in Resources */,
 				028AB33B23D9DCED0098DC2A /* Assets.xcassets in Resources */,
+				028AB36923D9F3AB0098DC2A /* tvshows.json in Resources */,
 				028AB35B23D9DE240098DC2A /* TVShowsListViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
