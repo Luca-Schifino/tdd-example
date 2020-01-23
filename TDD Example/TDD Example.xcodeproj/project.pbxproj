@@ -17,9 +17,13 @@
 		028AB35B23D9DE240098DC2A /* TVShowsListViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 028AB35623D9DE240098DC2A /* TVShowsListViewController.xib */; };
 		028AB35C23D9DE240098DC2A /* TVShowsListService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028AB35723D9DE240098DC2A /* TVShowsListService.swift */; };
 		028AB36123D9DEBA0098DC2A /* Dynamic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028AB36023D9DEBA0098DC2A /* Dynamic.swift */; };
-		028AB36523D9F19A0098DC2A /* TVShowViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028AB36423D9F19A0098DC2A /* TVShowViewModelTests.swift */; };
-		028AB36723D9F1AF0098DC2A /* TVShowViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028AB36623D9F1AF0098DC2A /* TVShowViewControllerTests.swift */; };
+		028AB36523D9F19A0098DC2A /* TVShowsListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028AB36423D9F19A0098DC2A /* TVShowsListViewModelTests.swift */; };
+		028AB36723D9F1AF0098DC2A /* TVShowsListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028AB36623D9F1AF0098DC2A /* TVShowsListViewControllerTests.swift */; };
 		028AB36923D9F3AB0098DC2A /* tvshows.json in Resources */ = {isa = PBXBuildFile; fileRef = 028AB36823D9F3AB0098DC2A /* tvshows.json */; };
+		0292ED3323D9FD030087BAC7 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0292ED3223D9FD030087BAC7 /* Decoder.swift */; };
+		0292ED3523DA04440087BAC7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0292ED3423DA04440087BAC7 /* Localizable.strings */; };
+		0292ED3923DA04DE0087BAC7 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0292ED3823DA04DE0087BAC7 /* String+Localized.swift */; };
+		0292ED3C23DA08FE0087BAC7 /* TVShowsListMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0292ED3B23DA08FE0087BAC7 /* TVShowsListMock.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,9 +51,13 @@
 		028AB35623D9DE240098DC2A /* TVShowsListViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TVShowsListViewController.xib; sourceTree = "<group>"; };
 		028AB35723D9DE240098DC2A /* TVShowsListService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsListService.swift; sourceTree = "<group>"; };
 		028AB36023D9DEBA0098DC2A /* Dynamic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dynamic.swift; sourceTree = "<group>"; };
-		028AB36423D9F19A0098DC2A /* TVShowViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowViewModelTests.swift; sourceTree = "<group>"; };
-		028AB36623D9F1AF0098DC2A /* TVShowViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowViewControllerTests.swift; sourceTree = "<group>"; };
+		028AB36423D9F19A0098DC2A /* TVShowsListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsListViewModelTests.swift; sourceTree = "<group>"; };
+		028AB36623D9F1AF0098DC2A /* TVShowsListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsListViewControllerTests.swift; sourceTree = "<group>"; };
 		028AB36823D9F3AB0098DC2A /* tvshows.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tvshows.json; sourceTree = "<group>"; };
+		0292ED3223D9FD030087BAC7 /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
+		0292ED3423DA04440087BAC7 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		0292ED3823DA04DE0087BAC7 /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
+		0292ED3B23DA08FE0087BAC7 /* TVShowsListMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsListMock.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,6 +99,8 @@
 		028AB33023D9DCE40098DC2A /* TDD Example */ = {
 			isa = PBXGroup;
 			children = (
+				0292ED3623DA04980087BAC7 /* General */,
+				0292ED3123D9FCE40087BAC7 /* Network */,
 				028AB35F23D9DE5E0098DC2A /* Resources */,
 				028AB35D23D9DE2F0098DC2A /* Scenes */,
 				028AB33123D9DCE40098DC2A /* AppDelegate.swift */,
@@ -102,6 +112,7 @@
 		028AB34723D9DCED0098DC2A /* TDD ExampleTests */ = {
 			isa = PBXGroup;
 			children = (
+				0292ED3A23DA08D40087BAC7 /* Mocks */,
 				028AB36323D9E5550098DC2A /* Scenes */,
 				028AB34A23D9DCED0098DC2A /* Info.plist */,
 			);
@@ -134,7 +145,7 @@
 				028AB33A23D9DCED0098DC2A /* Assets.xcassets */,
 				028AB33C23D9DCED0098DC2A /* LaunchScreen.storyboard */,
 				028AB33F23D9DCED0098DC2A /* Info.plist */,
-				028AB36023D9DEBA0098DC2A /* Dynamic.swift */,
+				0292ED3423DA04440087BAC7 /* Localizable.strings */,
 				028AB36823D9F3AB0098DC2A /* tvshows.json */,
 			);
 			path = Resources;
@@ -143,8 +154,8 @@
 		028AB36223D9E5420098DC2A /* TVShowsList */ = {
 			isa = PBXGroup;
 			children = (
-				028AB36423D9F19A0098DC2A /* TVShowViewModelTests.swift */,
-				028AB36623D9F1AF0098DC2A /* TVShowViewControllerTests.swift */,
+				028AB36423D9F19A0098DC2A /* TVShowsListViewModelTests.swift */,
+				028AB36623D9F1AF0098DC2A /* TVShowsListViewControllerTests.swift */,
 			);
 			path = TVShowsList;
 			sourceTree = "<group>";
@@ -155,6 +166,39 @@
 				028AB36223D9E5420098DC2A /* TVShowsList */,
 			);
 			path = Scenes;
+			sourceTree = "<group>";
+		};
+		0292ED3123D9FCE40087BAC7 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				0292ED3223D9FD030087BAC7 /* Decoder.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		0292ED3623DA04980087BAC7 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				0292ED3723DA04C10087BAC7 /* Extensions */,
+				028AB36023D9DEBA0098DC2A /* Dynamic.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		0292ED3723DA04C10087BAC7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				0292ED3823DA04DE0087BAC7 /* String+Localized.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		0292ED3A23DA08D40087BAC7 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				0292ED3B23DA08FE0087BAC7 /* TVShowsListMock.swift */,
+			);
+			path = Mocks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -238,6 +282,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0292ED3523DA04440087BAC7 /* Localizable.strings in Resources */,
 				028AB33E23D9DCED0098DC2A /* LaunchScreen.storyboard in Resources */,
 				028AB33B23D9DCED0098DC2A /* Assets.xcassets in Resources */,
 				028AB36923D9F3AB0098DC2A /* tvshows.json in Resources */,
@@ -259,10 +304,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0292ED3923DA04DE0087BAC7 /* String+Localized.swift in Sources */,
 				028AB35923D9DE240098DC2A /* TVShowsListViewController.swift in Sources */,
 				028AB35C23D9DE240098DC2A /* TVShowsListService.swift in Sources */,
 				028AB33223D9DCE40098DC2A /* AppDelegate.swift in Sources */,
 				028AB36123D9DEBA0098DC2A /* Dynamic.swift in Sources */,
+				0292ED3323D9FD030087BAC7 /* Decoder.swift in Sources */,
 				028AB35A23D9DE240098DC2A /* TVShowsListViewModel.swift in Sources */,
 				028AB33423D9DCE40098DC2A /* SceneDelegate.swift in Sources */,
 				028AB35823D9DE240098DC2A /* TVShowObject.swift in Sources */,
@@ -273,8 +320,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				028AB36523D9F19A0098DC2A /* TVShowViewModelTests.swift in Sources */,
-				028AB36723D9F1AF0098DC2A /* TVShowViewControllerTests.swift in Sources */,
+				0292ED3C23DA08FE0087BAC7 /* TVShowsListMock.swift in Sources */,
+				028AB36523D9F19A0098DC2A /* TVShowsListViewModelTests.swift in Sources */,
+				028AB36723D9F1AF0098DC2A /* TVShowsListViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

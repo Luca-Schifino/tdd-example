@@ -1,0 +1,10 @@
+/* 
+  Localizable.strings
+  TDD Example
+
+  Created by Luca Saldanha Schifino on 23/01/20.
+  Copyright © 2020 lucass. All rights reserved.
+*/
+
+"serviceJsonNotFound" = "TV Shows JSON not found.";
+"serviceDefaultError" = "An error ocurred when getting the TV Shows. Please, try again later.";

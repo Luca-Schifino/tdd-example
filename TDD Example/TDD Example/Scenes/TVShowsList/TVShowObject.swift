@@ -8,5 +8,6 @@
 
 import Foundation
 
-struct TVShow: Codable {
+struct TVShow: Decodable, Equatable {
+    let title: String
 }
