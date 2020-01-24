@@ -1,4 +1,4 @@
-name: Swift
+name: Test
 
 on: [push]
 
@@ -10,6 +10,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build
-      run: swift build -v
+      run: xcodebuild clean -scheme TDD\ Example build-for-testing
     - name: Run tests
-      run: swift test -v
+      run: xcodebuild test-without-building
