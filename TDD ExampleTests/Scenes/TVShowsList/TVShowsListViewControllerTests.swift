@@ -83,8 +83,23 @@ class TVShowViewControllerTests: XCTestCase {
                 XCTFail("Couldn't find cell")
                 return
             }
+            if index == viewModel.mockedRatingRow {
+                XCTAssertEqual(cell.ratingLabel.text, "\(viewModel.mockedRating)")
+                XCTAssertFalse(cell.ratingLabel.isHidden)
+            } else {
+                XCTAssertTrue(cell.ratingLabel.isHidden)
+            }
             XCTAssertEqual(cell.titleLabel.text, tvshows[index].title)
         }
+    }
+    
+    // MARK: Rating
+    func testShowRateTVShow() {
+        // When
+        viewController.tableView(viewController.tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
+        
+        // Then
+        XCTAssertTrue(viewController.view.hasSubviewOf(type: RatingView.self))
     }
     
     private func waitForMainDispatchQueue() {

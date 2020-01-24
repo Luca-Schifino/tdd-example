@@ -67,4 +67,19 @@ class TVShowListViewModelTests: XCTestCase {
         XCTAssertFalse(viewModel.tvshowsResultSuccess.value)
         XCTAssertNotNil(viewModel.errorMessage.value)
     }
+    
+    // MARK: Rate tv shows
+    func testRateTVShow() {
+        // Given
+        let rowToRate = 2
+        let tvshowToRate = serviceMock.tvshows[rowToRate]
+        
+        // When
+        viewModel.rateTVShowAtRow(rowToRate, rating: 3.5)
+        
+        // Then
+        XCTAssertTrue(viewModel.tvshowsRatings.map {
+            $0.tvshowId
+        }.contains(tvshowToRate.id))
+    }
 }

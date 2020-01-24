@@ -18,8 +18,10 @@ class TVShowsListServiceMock: TVShowsListServiceProtocol {
     var calledLoadTVShows = false
     var wantsLoadTVShowsError = false
     var tvshows = [
-        TVShow(title: "Test 1"),
-        TVShow(title: "Test 2")
+        TVShow(id: "1", title: "Test 1"),
+        TVShow(id: "2", title: "Test 2"),
+        TVShow(id: "3", title: "Test 3"),
+        TVShow(id: "4", title: "Test 4")
     ]
     
     func loadTVShows(completion: @escaping (Result<[TVShow], Error>) -> Void) {
@@ -33,14 +35,16 @@ class TVShowsListServiceMock: TVShowsListServiceProtocol {
 }
 
 class TVShowsListViewModelMock: TVShowsListViewModelProtocol {
-    
     var errorMessage: Dynamic<String?> = Dynamic(nil)
     var loading: Dynamic<Bool> = Dynamic(false)
     var tvshowsResultSuccess: Dynamic<Bool> = Dynamic(false)
     var tvshows: [TVShow] = [
-        TVShow(title: "Test 1"),
-        TVShow(title: "Test 2"),
-        TVShow(title: "Test 3")
+        TVShow(id: "1", title: "Test 1"),
+        TVShow(id: "2", title: "Test 2"),
+        TVShow(id: "3", title: "Test 3")
+    ]
+    var tvshowsRatings: [TVShowRating] = [
+        TVShowRating(tvshowId: "1", rating: 8.9)
     ]
     
     func setErrorMessage(_ message: String?) {
@@ -53,5 +57,19 @@ class TVShowsListViewModelMock: TVShowsListViewModelProtocol {
     
     func setTVShowsResultSuccess(_ success: Bool) {
         tvshowsResultSuccess.value = success
+    }
+    
+    var ratedRow: Int?
+    func rateTVShowAtRow(_ row: Int, rating: Double) {
+        ratedRow = row
+    }
+    
+    let mockedRatingRow = 1
+    let mockedRating = 6.7
+    func tvshowRatingForCellAtRow(_ row: Int) -> Double? {
+        if row == mockedRatingRow {
+            return mockedRating
+        }
+        return nil
     }
 }

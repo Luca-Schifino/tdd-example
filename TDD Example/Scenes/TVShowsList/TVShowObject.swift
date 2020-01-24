@@ -9,5 +9,11 @@
 import Foundation
 
 struct TVShow: Decodable, Equatable {
+    let id: String
     let title: String
+}
+
+struct TVShowRating: Codable {
+    let tvshowId: String
+    let rating: Double
 }

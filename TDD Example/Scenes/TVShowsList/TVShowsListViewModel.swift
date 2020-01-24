@@ -13,20 +13,29 @@ protocol TVShowsListViewModelProtocol: AnyObject {
     var loading: Dynamic<Bool> { get }
     var tvshowsResultSuccess: Dynamic<Bool> { get }
     var tvshows: [TVShow] { get }
+    var tvshowsRatings: [TVShowRating] { get }
+    
+    func rateTVShowAtRow(_ row: Int, rating: Double)
+    func tvshowRatingForCellAtRow(_ row: Int) -> Double?
 }
 
 class TVShowsListViewModel {
+    
+    // MARK: Variable
     private var service: TVShowsListServiceProtocol
     public var errorMessage: Dynamic<String?> = Dynamic(nil)
     public var loading: Dynamic<Bool> = Dynamic(false)
     public var tvshowsResultSuccess: Dynamic<Bool> = Dynamic(false)
     private(set) var tvshows = [TVShow]()
+    private(set) var tvshowsRatings = [TVShowRating]()
 
+    // MARK: Life Cycle
     init(service: TVShowsListServiceProtocol = TVShowsListService()) {
         self.service = service
         loadTVShows()
     }
     
+    // MARK: Functions
     func loadTVShows() {
         loading.value = true
         service.loadTVShows { [weak self] result in
@@ -56,4 +65,14 @@ class TVShowsListViewModel {
 }
 
 extension TVShowsListViewModel: TVShowsListViewModelProtocol {
+    
+    func rateTVShowAtRow(_ row: Int, rating: Double) {
+        let tvshow = tvshows[row]
+        let tvshowRating = TVShowRating(tvshowId: tvshow.id, rating: rating)
+        tvshowsRatings.append(tvshowRating)
+    }
+    
+    func tvshowRatingForCellAtRow(_ row: Int) -> Double? {
+        return tvshowsRatings.first(where: { $0.tvshowId == tvshows[row].id })?.rating
+    }
 }

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -16,8 +16,14 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBd-lO-TBz">
-                        <rect key="frame" x="24" y="12" width="42" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mr. Robot" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBd-lO-TBz">
+                        <rect key="frame" x="24" y="12" width="74.5" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8.9" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQQ-zw-Em6">
+                        <rect key="frame" x="271" y="12" width="25" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -25,17 +31,20 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="pBd-lO-TBz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="6To-Xk-hp6"/>
-                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="pBd-lO-TBz" secondAttribute="trailing" constant="24" id="Lqr-nU-eov"/>
+                    <constraint firstAttribute="trailing" secondItem="QQQ-zw-Em6" secondAttribute="trailing" constant="24" id="IB8-EN-DZe"/>
+                    <constraint firstItem="QQQ-zw-Em6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pBd-lO-TBz" secondAttribute="trailing" constant="12" id="QKg-uB-gr6"/>
                     <constraint firstItem="pBd-lO-TBz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="WaH-fO-o7b"/>
+                    <constraint firstItem="QQQ-zw-Em6" firstAttribute="top" secondItem="pBd-lO-TBz" secondAttribute="top" id="apT-ww-8gf"/>
                     <constraint firstItem="pBd-lO-TBz" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="e2f-TQ-Hla"/>
                     <constraint firstAttribute="bottom" secondItem="pBd-lO-TBz" secondAttribute="bottom" constant="12" id="pg8-J0-BQX"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="ratingLabel" destination="QQQ-zw-Em6" id="XGX-21-H5P"/>
                 <outlet property="titleLabel" destination="pBd-lO-TBz" id="Bqf-Hh-phH"/>
             </connections>
-            <point key="canvasLocation" x="139" y="154"/>
+            <point key="canvasLocation" x="137.68115942028987" y="153.34821428571428"/>
         </tableViewCell>
     </objects>
 </document>

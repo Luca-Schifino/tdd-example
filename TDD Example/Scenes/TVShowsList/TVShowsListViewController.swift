@@ -16,8 +16,10 @@ final class TVShowsListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView! {
         didSet {
             tableView.dataSource = self
+            tableView.delegate = self
             tableView.registerNib(for: TVShowTableViewCell.self)
             tableView.allowsSelection = false
+            tableView.rowHeight = UITableView.automaticDimension
         }
     }
     
@@ -81,7 +83,15 @@ extension TVShowsListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell: TVShowTableViewCell? = tableView.dequeueReusableCell()
-        cell?.configure(tvshow: viewModel.tvshows[indexPath.row])
+        cell?.configure(tvshow: viewModel.tvshows[indexPath.row],
+                        rating: viewModel.tvshowRatingForCellAtRow(indexPath.row))
         return cell ?? UITableViewCell()
+    }
+}
+
+extension TVShowsListViewController: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        // TODO: Show Rating View
     }
 }
