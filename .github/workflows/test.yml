@@ -12,4 +12,4 @@ jobs:
     - name: Build
       run: xcodebuild clean -project TDD\ Example.xcodeproj -scheme TDD\ Example build-for-testing
     - name: Run tests
-      run: xcodebuild -destination "platform=iOS Simulator, OS=latest"  test-without-building
+      run: xcodebuild -destination 'platform=iOS Simulator,name=iPhone 11,OS=13.3'  test-without-building
