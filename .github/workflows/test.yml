@@ -9,7 +9,10 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Build
-      run: xcodebuild clean -project TDD\ Example.xcodeproj -scheme TDD\ Example build-for-testing
     - name: Run tests
-      run: xcodebuild -destination 'platform=iOS Simulator,name=iPhone 11,OS=13.3' -allowProvisioningUpdates  test-without-building
+      run: xcodebuild \
+      -project TDD\ Example.xcodeproj \
+      -scheme TDD\ Example \
+      -sdk iphonesimulator \
+      -destination 'platform=iOS Simulator,name=iPhone 11,OS=13.3' \
+      test
