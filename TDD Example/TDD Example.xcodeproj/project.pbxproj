@@ -24,6 +24,9 @@
 		0292ED3523DA04440087BAC7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0292ED3423DA04440087BAC7 /* Localizable.strings */; };
 		0292ED3923DA04DE0087BAC7 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0292ED3823DA04DE0087BAC7 /* String+Localized.swift */; };
 		0292ED3C23DA08FE0087BAC7 /* TVShowsListMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0292ED3B23DA08FE0087BAC7 /* TVShowsListMock.swift */; };
+		124DBCD823DA996200E407D7 /* TVShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124DBCD623DA996200E407D7 /* TVShowTableViewCell.swift */; };
+		124DBCD923DA996200E407D7 /* TVShowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 124DBCD723DA996200E407D7 /* TVShowTableViewCell.xib */; };
+		124DBCDB23DA9ED200E407D7 /* NibRegistrableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124DBCDA23DA9ED200E407D7 /* NibRegistrableView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -58,6 +61,9 @@
 		0292ED3423DA04440087BAC7 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		0292ED3823DA04DE0087BAC7 /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		0292ED3B23DA08FE0087BAC7 /* TVShowsListMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsListMock.swift; sourceTree = "<group>"; };
+		124DBCD623DA996200E407D7 /* TVShowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowTableViewCell.swift; sourceTree = "<group>"; };
+		124DBCD723DA996200E407D7 /* TVShowTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TVShowTableViewCell.xib; sourceTree = "<group>"; };
+		124DBCDA23DA9ED200E407D7 /* NibRegistrableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibRegistrableView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +141,8 @@
 				028AB35623D9DE240098DC2A /* TVShowsListViewController.xib */,
 				028AB35523D9DE240098DC2A /* TVShowsListViewModel.swift */,
 				028AB35723D9DE240098DC2A /* TVShowsListService.swift */,
+				124DBCD623DA996200E407D7 /* TVShowTableViewCell.swift */,
+				124DBCD723DA996200E407D7 /* TVShowTableViewCell.xib */,
 			);
 			path = TVShowsList;
 			sourceTree = "<group>";
@@ -181,6 +189,7 @@
 			children = (
 				0292ED3723DA04C10087BAC7 /* Extensions */,
 				028AB36023D9DEBA0098DC2A /* Dynamic.swift */,
+				124DBCDA23DA9ED200E407D7 /* NibRegistrableView.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -284,6 +293,7 @@
 			files = (
 				0292ED3523DA04440087BAC7 /* Localizable.strings in Resources */,
 				028AB33E23D9DCED0098DC2A /* LaunchScreen.storyboard in Resources */,
+				124DBCD923DA996200E407D7 /* TVShowTableViewCell.xib in Resources */,
 				028AB33B23D9DCED0098DC2A /* Assets.xcassets in Resources */,
 				028AB36923D9F3AB0098DC2A /* tvshows.json in Resources */,
 				028AB35B23D9DE240098DC2A /* TVShowsListViewController.xib in Resources */,
@@ -306,11 +316,13 @@
 			files = (
 				0292ED3923DA04DE0087BAC7 /* String+Localized.swift in Sources */,
 				028AB35923D9DE240098DC2A /* TVShowsListViewController.swift in Sources */,
+				124DBCD823DA996200E407D7 /* TVShowTableViewCell.swift in Sources */,
 				028AB35C23D9DE240098DC2A /* TVShowsListService.swift in Sources */,
 				028AB33223D9DCE40098DC2A /* AppDelegate.swift in Sources */,
 				028AB36123D9DEBA0098DC2A /* Dynamic.swift in Sources */,
 				0292ED3323D9FD030087BAC7 /* Decoder.swift in Sources */,
 				028AB35A23D9DE240098DC2A /* TVShowsListViewModel.swift in Sources */,
+				124DBCDB23DA9ED200E407D7 /* NibRegistrableView.swift in Sources */,
 				028AB33423D9DCE40098DC2A /* SceneDelegate.swift in Sources */,
 				028AB35823D9DE240098DC2A /* TVShowObject.swift in Sources */,
 			);
@@ -470,6 +482,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NKB5R7D2UK;
 				INFOPLIST_FILE = "TDD Example/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -490,6 +503,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = NKB5R7D2UK;
 				INFOPLIST_FILE = "TDD Example/Resources/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -510,7 +524,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NKB5R7D2UK;
 				INFOPLIST_FILE = "TDD ExampleTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -532,7 +546,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = NKB5R7D2UK;
 				INFOPLIST_FILE = "TDD ExampleTests/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

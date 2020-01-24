@@ -24,6 +24,7 @@ class TVShowListViewModelTests: XCTestCase {
         viewModel = nil
     }
     
+    // MARK: Load TV Shows
     func testCalledLoadTVShowsOnInit() {
         // Given
         XCTAssertNotNil(viewModel)
