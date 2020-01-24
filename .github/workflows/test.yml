@@ -10,6 +10,6 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Build
-      run: xcodebuild clean -project TDD\ Example.xcodeproj -scheme TDD\ Example build-for-testing
+      run: xcodebuild clean -project TDD\ Example.xcodeproj -scheme TDD\ Example -destination "platform=iOS Simulator, OS=latest" build-for-testing
     - name: Run tests
       run: xcodebuild test-without-building
