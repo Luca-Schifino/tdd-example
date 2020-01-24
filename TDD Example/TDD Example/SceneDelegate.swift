@@ -17,7 +17,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         let window = UIWindow(windowScene: windowScene)
         self.window = window
         let viewModel = TVShowsListViewModel()
-        window.rootViewController = TVShowsListViewController(viewModel: viewModel)
+        let viewController = TVShowsListViewController(viewModel: viewModel)
+        let navigationController = UINavigationController(rootViewController: viewController)
+        window.rootViewController = navigationController
         window.makeKeyAndVisible()
     }
 }

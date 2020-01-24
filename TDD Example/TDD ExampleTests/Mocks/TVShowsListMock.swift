@@ -31,3 +31,27 @@ class TVShowsListServiceMock: TVShowsListServiceProtocol {
         }
     }
 }
+
+class TVShowsListViewModelMock: TVShowsListViewModelProtocol {
+    
+    var errorMessage: Dynamic<String?> = Dynamic(nil)
+    var loading: Dynamic<Bool> = Dynamic(false)
+    var tvshowsResultSuccess: Dynamic<Bool> = Dynamic(false)
+    var tvshows: [TVShow] = [
+        TVShow(title: "Test 1"),
+        TVShow(title: "Test 2"),
+        TVShow(title: "Test 3")
+    ]
+    
+    func setErrorMessage(_ message: String?) {
+        errorMessage.value = message
+    }
+    
+    func setLoading(_ isLoading: Bool) {
+        loading.value = isLoading
+    }
+    
+    func setTVShowsResultSuccess(_ success: Bool) {
+        tvshowsResultSuccess.value = success
+    }
+}
