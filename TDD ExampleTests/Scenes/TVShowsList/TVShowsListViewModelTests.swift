@@ -15,6 +15,7 @@ class TVShowListViewModelTests: XCTestCase {
     var viewModel: TVShowsListViewModel!
     
     override func setUp() {
+        UserDefaultsStorage.removeObject(forKey: .ratings)
         serviceMock = TVShowsListServiceMock()
         viewModel = TVShowsListViewModel(service: serviceMock)
     }
@@ -46,14 +47,14 @@ class TVShowListViewModelTests: XCTestCase {
         XCTAssertTrue(serviceMock.calledLoadTVShows)
         XCTAssertEqual(loadingObserver.values, [true, false])
         XCTAssertEqual(viewModel.tvshows, serviceMock.tvshows)
-        XCTAssertTrue(viewModel.tvshowsResultSuccess.value)
+        XCTAssertTrue(viewModel.reloadData.value)
         XCTAssertNil(viewModel.errorMessage.value)
     }
     
     func testLoadTVShowsFailure() {
         // Given
         serviceMock.calledLoadTVShows = false
-        viewModel.tvshowsResultSuccess.value = false
+        viewModel.reloadData.value = false
         serviceMock.wantsLoadTVShowsError = true
         let loadingObserver = DynamicObserver<Bool>()
         viewModel.loading.setObserver(with: loadingObserver)
@@ -64,7 +65,50 @@ class TVShowListViewModelTests: XCTestCase {
         // Then
         XCTAssertTrue(serviceMock.calledLoadTVShows)
         XCTAssertEqual(loadingObserver.values, [true, false])
-        XCTAssertFalse(viewModel.tvshowsResultSuccess.value)
+        XCTAssertFalse(viewModel.reloadData.value)
         XCTAssertNotNil(viewModel.errorMessage.value)
+    }
+    
+    // MARK: Rate tv shows
+    func testLoadInitialRatingsAfterTVShows() {
+        // Given
+        let tvshowRatings = [
+            TVShowRating(tvshowId: "test123", rating: 2),
+            TVShowRating(tvshowId: "test345", rating: 4)
+        ]
+        try? UserDefaultsStorage.encodeObject(data: tvshowRatings, forKey: .ratings)
+        
+        // When
+        viewModel.loadTVShows()
+        
+        // Then
+        XCTAssertEqual(viewModel.tvshowsRatings, tvshowRatings)
+    }
+    
+    func testRateTVShow() {
+        // Given
+        let rowToRate = 2
+        let tvshowToRate = serviceMock.tvshows[rowToRate]
+        
+        // When
+        viewModel.rateTVShowAtRow(rowToRate, rating: 3)
+        
+        // Then
+        XCTAssertTrue(viewModel.tvshowsRatings.map {
+            $0.tvshowId
+        }.contains(tvshowToRate.id))
+    }
+    
+    func testOrderTVShowByRating() {
+        // Given
+        var tvshowsAux = [TVShow]()
+        for (index, tvshow) in serviceMock.tvshows.enumerated() {
+            viewModel.rateTVShowAtRow(index, rating: 10 - index)
+            tvshowsAux.append(tvshow)
+        }
+        
+        // Then
+        XCTAssertEqual(viewModel.tvshows, tvshowsAux)
+        XCTAssertEqual(try? UserDefaultsStorage.decodeObject(forKey: .ratings), viewModel.tvshowsRatings)
     }
 }

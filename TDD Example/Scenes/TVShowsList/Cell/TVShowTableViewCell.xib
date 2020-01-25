@@ -16,8 +16,17 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBd-lO-TBz">
-                        <rect key="frame" x="24" y="12" width="42" height="20"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mr. Robot" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBd-lO-TBz">
+                        <rect key="frame" x="24" y="12" width="74.5" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="8" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QQQ-zw-Em6" customClass="MarginLabel" customModule="TDD_Example" customModuleProvider="target">
+                        <rect key="frame" x="276" y="12" width="20" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="QQQ-zw-Em6" secondAttribute="height" multiplier="1:1" id="cbJ-Kf-LcM"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
@@ -25,17 +34,21 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="pBd-lO-TBz" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="12" id="6To-Xk-hp6"/>
-                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="pBd-lO-TBz" secondAttribute="trailing" constant="24" id="Lqr-nU-eov"/>
+                    <constraint firstAttribute="trailing" secondItem="QQQ-zw-Em6" secondAttribute="trailing" constant="24" id="IB8-EN-DZe"/>
+                    <constraint firstItem="QQQ-zw-Em6" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pBd-lO-TBz" secondAttribute="trailing" constant="12" id="QKg-uB-gr6"/>
                     <constraint firstItem="pBd-lO-TBz" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="24" id="WaH-fO-o7b"/>
+                    <constraint firstItem="QQQ-zw-Em6" firstAttribute="top" secondItem="pBd-lO-TBz" secondAttribute="top" id="apT-ww-8gf"/>
                     <constraint firstItem="pBd-lO-TBz" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="e2f-TQ-Hla"/>
+                    <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="QQQ-zw-Em6" secondAttribute="bottom" constant="12" id="eI9-AW-J4h"/>
                     <constraint firstAttribute="bottom" secondItem="pBd-lO-TBz" secondAttribute="bottom" constant="12" id="pg8-J0-BQX"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="ratingLabel" destination="QQQ-zw-Em6" id="6B3-v6-kDe"/>
                 <outlet property="titleLabel" destination="pBd-lO-TBz" id="Bqf-Hh-phH"/>
             </connections>
-            <point key="canvasLocation" x="139" y="154"/>
+            <point key="canvasLocation" x="137.68115942028987" y="153.34821428571428"/>
         </tableViewCell>
     </objects>
 </document>
