@@ -66,9 +66,9 @@ final class TVShowsListViewController: UIViewController {
                 self.navigationController?.present(alert, animated: true, completion: nil)
             }
         }
-        viewModel.tvshowsResultSuccess.bindAndFire { success in
+        viewModel.reloadData.bindAndFire { shouldReload in
             DispatchQueue.main.async { [weak self] in
-                guard let self = self, success else { return }
+                guard let self = self, shouldReload else { return }
                 self.tableView.reloadData()
             }
         }
@@ -98,7 +98,7 @@ extension TVShowsListViewController: UITableViewDelegate {
         DispatchQueue.main.async { [weak self] in
             guard let self = self else { return }
             self.addModalMaskView()
-            self.showRatingView(delegate: self)
+            self.showRatingView(delegate: self, initialRating: self.viewModel.tvshowRatingForCellAtRow(indexPath.row))
         }
     }
 }

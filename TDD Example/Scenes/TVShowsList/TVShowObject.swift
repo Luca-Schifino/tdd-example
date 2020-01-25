@@ -13,7 +13,7 @@ struct TVShow: Decodable, Equatable {
     let title: String
 }
 
-struct TVShowRating: Codable {
+struct TVShowRating: Codable, Equatable {
     let tvshowId: String
     let rating: Int
 }

@@ -16,8 +16,8 @@ extension UIViewController {
         }
     }
     
-    func showRatingView(delegate: RatingViewDelegate) {
-        let ratingView = RatingView(parentView: view, delegate: delegate)
+    func showRatingView(delegate: RatingViewDelegate, initialRating: Int? = nil) {
+        let ratingView = RatingView(parentView: view, delegate: delegate, initialRating: initialRating)
         view.addSubview(ratingView)
     }
     

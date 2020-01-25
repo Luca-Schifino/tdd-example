@@ -34,6 +34,8 @@
 		124DBCDB23DA9ED200E407D7 /* NibRegistrableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124DBCDA23DA9ED200E407D7 /* NibRegistrableView.swift */; };
 		12C880A423DC94DA009FFD57 /* RatingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C880A223DC94DA009FFD57 /* RatingCollectionViewCell.swift */; };
 		12C880A523DC94DA009FFD57 /* RatingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12C880A323DC94DA009FFD57 /* RatingCollectionViewCell.xib */; };
+		12C880A823DCB215009FFD57 /* UserDefaultsStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C880A723DCB215009FFD57 /* UserDefaultsStorage.swift */; };
+		12C880AB23DCDC96009FFD57 /* MarginLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C880AA23DCDC96009FFD57 /* MarginLabel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,8 @@
 		124DBCDA23DA9ED200E407D7 /* NibRegistrableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibRegistrableView.swift; sourceTree = "<group>"; };
 		12C880A223DC94DA009FFD57 /* RatingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingCollectionViewCell.swift; sourceTree = "<group>"; };
 		12C880A323DC94DA009FFD57 /* RatingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingCollectionViewCell.xib; sourceTree = "<group>"; };
+		12C880A723DCB215009FFD57 /* UserDefaultsStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsStorage.swift; sourceTree = "<group>"; };
+		12C880AA23DCDC96009FFD57 /* MarginLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MarginLabel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				0292ED3623DA04980087BAC7 /* General */,
-				0292ED3123D9FCE40087BAC7 /* Network */,
 				028AB35F23D9DE5E0098DC2A /* Resources */,
 				028AB35D23D9DE2F0098DC2A /* Scenes */,
 				028AB33123D9DCE40098DC2A /* AppDelegate.swift */,
@@ -190,21 +193,16 @@
 			path = Scenes;
 			sourceTree = "<group>";
 		};
-		0292ED3123D9FCE40087BAC7 /* Network */ = {
-			isa = PBXGroup;
-			children = (
-				0292ED3223D9FD030087BAC7 /* Decoder.swift */,
-			);
-			path = Network;
-			sourceTree = "<group>";
-		};
 		0292ED3623DA04980087BAC7 /* General */ = {
 			isa = PBXGroup;
 			children = (
+				12C880A923DCDC85009FFD57 /* Views */,
 				0292ED3723DA04C10087BAC7 /* Extensions */,
+				0292ED3223D9FD030087BAC7 /* Decoder.swift */,
 				0292ED6023DB7B2A0087BAC7 /* Device.swift */,
 				028AB36023D9DEBA0098DC2A /* Dynamic.swift */,
 				124DBCDA23DA9ED200E407D7 /* NibRegistrableView.swift */,
+				12C880A723DCB215009FFD57 /* UserDefaultsStorage.swift */,
 			);
 			path = General;
 			sourceTree = "<group>";
@@ -245,6 +243,14 @@
 				0292ED6223DB7C270087BAC7 /* UIViewController+Rating.swift */,
 			);
 			path = Rating;
+			sourceTree = "<group>";
+		};
+		12C880A923DCDC85009FFD57 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				12C880AA23DCDC96009FFD57 /* MarginLabel.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -353,6 +359,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				12C880AB23DCDC96009FFD57 /* MarginLabel.swift in Sources */,
 				0292ED3923DA04DE0087BAC7 /* String+Localized.swift in Sources */,
 				028AB35923D9DE240098DC2A /* TVShowsListViewController.swift in Sources */,
 				124DBCD823DA996200E407D7 /* TVShowTableViewCell.swift in Sources */,
@@ -367,6 +374,7 @@
 				028AB35A23D9DE240098DC2A /* TVShowsListViewModel.swift in Sources */,
 				0292ED6323DB7C270087BAC7 /* UIViewController+Rating.swift in Sources */,
 				124DBCDB23DA9ED200E407D7 /* NibRegistrableView.swift in Sources */,
+				12C880A823DCB215009FFD57 /* UserDefaultsStorage.swift in Sources */,
 				028AB33423D9DCE40098DC2A /* SceneDelegate.swift in Sources */,
 				028AB35823D9DE240098DC2A /* TVShowObject.swift in Sources */,
 			);

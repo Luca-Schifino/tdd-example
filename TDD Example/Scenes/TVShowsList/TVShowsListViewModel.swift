@@ -11,7 +11,7 @@ import Foundation
 protocol TVShowsListViewModelProtocol: AnyObject {
     var errorMessage: Dynamic<String?> { get }
     var loading: Dynamic<Bool> { get }
-    var tvshowsResultSuccess: Dynamic<Bool> { get }
+    var reloadData: Dynamic<Bool> { get }
     var tvshows: [TVShow] { get }
     var tvshowsRatings: [TVShowRating] { get }
     
@@ -25,7 +25,7 @@ class TVShowsListViewModel {
     private var service: TVShowsListServiceProtocol
     public var errorMessage: Dynamic<String?> = Dynamic(nil)
     public var loading: Dynamic<Bool> = Dynamic(false)
-    public var tvshowsResultSuccess: Dynamic<Bool> = Dynamic(false)
+    public var reloadData: Dynamic<Bool> = Dynamic(false)
     private(set) var tvshows = [TVShow]()
     private(set) var tvshowsRatings = [TVShowRating]()
 
@@ -44,7 +44,7 @@ class TVShowsListViewModel {
             switch result {
             case .success(let tvshows):
                 self.tvshows = tvshows
-                self.tvshowsResultSuccess.value = true
+                self.loadInitialRatings()
             case .failure(let error):
                 switch error {
                 case let serviceError as ServiceError:
@@ -53,6 +53,28 @@ class TVShowsListViewModel {
                     self.errorMessage.value = "serviceDefaultError".localized()
                 }
             }
+        }
+    }
+    
+    private func loadInitialRatings() {
+        do {
+            let storageRatings: [TVShowRating] = try UserDefaultsStorage.decodeObject(forKey: .ratings)
+            tvshowsRatings = storageRatings
+            reorderTVShowsByRating()
+        } catch {
+            guard let _ = error as? UserDefaultsStorageError else {
+                errorMessage.value = "ratingsStorageDecodeError".localized()
+                return
+            }
+        }
+        reloadData.value = true
+    }
+    
+    private func reorderTVShowsByRating() {
+        tvshows.sort { (tvshowOne: TVShow, tvshowTwo: TVShow) in
+            let ratingOne = tvshowsRatings.first(where: { $0.tvshowId == tvshowOne.id })?.rating
+            let ratingTwo = tvshowsRatings.first(where: { $0.tvshowId == tvshowTwo.id })?.rating
+            return ratingOne ?? 0 > ratingTwo ?? 0
         }
     }
     
@@ -70,7 +92,17 @@ extension TVShowsListViewModel: TVShowsListViewModelProtocol {
     func rateTVShowAtRow(_ row: Int, rating: Int) {
         let tvshow = tvshows[row]
         let tvshowRating = TVShowRating(tvshowId: tvshow.id, rating: rating)
-        tvshowsRatings.append(tvshowRating)
+        var tvshowRatingsAux = tvshowsRatings
+        tvshowRatingsAux.removeAll(where: { $0.tvshowId == tvshowRating.tvshowId })
+        tvshowRatingsAux.append(tvshowRating)
+        do {
+            try UserDefaultsStorage.encodeObject(data: tvshowRatingsAux, forKey: .ratings)
+            tvshowsRatings = tvshowRatingsAux
+            reorderTVShowsByRating()
+            reloadData.value = true
+        } catch {
+            errorMessage.value = "ratingsStorageEncodeError".localized()
+        }
     }
     
     func tvshowRatingForCellAtRow(_ row: Int) -> Int? {

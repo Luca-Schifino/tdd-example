@@ -33,7 +33,7 @@ class TVShowViewControllerTests: XCTestCase {
         // Then
         XCTAssertTrue(viewModel.loading.isBinded())
         XCTAssertTrue(viewModel.errorMessage.isBinded())
-        XCTAssertTrue(viewModel.tvshowsResultSuccess.isBinded())
+        XCTAssertTrue(viewModel.reloadData.isBinded())
     }
     
     // MARK: Loader
@@ -64,7 +64,7 @@ class TVShowViewControllerTests: XCTestCase {
     // MARK: Cells
     func testNumberOfCells() {
         // Given
-        viewModel.setTVShowsResultSuccess(true)
+        viewModel.setReloadData(true)
         
         // Then
         XCTAssertEqual(viewController.tableView(viewController.tableView, numberOfRowsInSection: 0), viewModel.tvshows.count)
@@ -72,7 +72,7 @@ class TVShowViewControllerTests: XCTestCase {
     
     func testCellsContent() {
         // Given
-        viewModel.setTVShowsResultSuccess(true)
+        viewModel.setReloadData(true)
         
         // Then
         let tvshows = viewModel.tvshows

@@ -56,12 +56,14 @@ class RatingView: UIView {
     private let parentView: UIView
     private let animationsDuration = 0.5
     private let gradeCount = 10
-    private var rating: Int?
+    private var selectedRating: Int?
+    private var ratingToSave: Int?
     
     // MARK: Life Cycle
-    init(parentView: UIView, delegate: RatingViewDelegate?) {
+    init(parentView: UIView, delegate: RatingViewDelegate?, initialRating: Int?) {
         self.parentView = parentView
         self.delegate = delegate
+        self.selectedRating = initialRating
         super.init(frame: .zero)
         commonInit()
     }
@@ -126,7 +128,7 @@ class RatingView: UIView {
     }
     
     private func dismissAnimated() {
-        delegate?.willDismissRatingView(withRating: rating)
+        delegate?.willDismissRatingView(withRating: ratingToSave)
         UIView.animate(withDuration: animationsDuration, animations: {
             guard let contentView = self.contentView else { return }
             contentView.frame.origin = CGPoint(x: contentView.frame.minX, y: contentView.frame.minY + contentView.frame.height)
@@ -143,6 +145,7 @@ class RatingView: UIView {
     }
     
     @IBAction func confirmAction(_ sender: Any) {
+        ratingToSave = selectedRating
         dismissAnimated()
     }
 }
@@ -156,7 +159,7 @@ extension RatingView: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell: RatingCollectionViewCell? = collectionView.dequeueReusableCell(for: indexPath)
         let grade = indexPath.row + 1
-        let selected = rating == grade
+        let selected = selectedRating == grade
         cell?.configure(grade: grade, selected: selected)
         return cell ?? UICollectionViewCell()
     }
@@ -167,7 +170,7 @@ extension RatingView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let grade = indexPath.row + 1
-        rating = grade
+        selectedRating = grade
         enableSendButton()
         collectionView.reloadData()
     }
