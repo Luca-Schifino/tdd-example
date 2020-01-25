@@ -75,7 +75,7 @@ class TVShowListViewModelTests: XCTestCase {
         let tvshowToRate = serviceMock.tvshows[rowToRate]
         
         // When
-        viewModel.rateTVShowAtRow(rowToRate, rating: 3.5)
+        viewModel.rateTVShowAtRow(rowToRate, rating: 3)
         
         // Then
         XCTAssertTrue(viewModel.tvshowsRatings.map {

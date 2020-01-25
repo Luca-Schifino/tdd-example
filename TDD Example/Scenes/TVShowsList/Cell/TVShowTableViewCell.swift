@@ -16,7 +16,7 @@ class TVShowTableViewCell: NibRegistrableTableViewCell {
     @IBOutlet weak var ratingLabel: UILabel!
     
     // MARK: Functions
-    func configure(tvshow: TVShow, rating: Double?) {
+    func configure(tvshow: TVShow, rating: Int?) {
         titleLabel.text = tvshow.title
         ratingLabel.text = "\(rating ?? 0)"
         ratingLabel.isHidden = rating == nil

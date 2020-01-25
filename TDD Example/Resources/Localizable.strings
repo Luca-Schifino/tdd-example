@@ -10,3 +10,4 @@
 "serviceJsonNotFound" = "TV Shows JSON not found.";
 "serviceDefaultError" = "An error ocurred when getting the TV Shows. Please, try again later.";
 "ok" = "Ok";
+"confirm" = "Confirm";

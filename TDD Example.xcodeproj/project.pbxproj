@@ -32,6 +32,8 @@
 		124DBCD823DA996200E407D7 /* TVShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124DBCD623DA996200E407D7 /* TVShowTableViewCell.swift */; };
 		124DBCD923DA996200E407D7 /* TVShowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 124DBCD723DA996200E407D7 /* TVShowTableViewCell.xib */; };
 		124DBCDB23DA9ED200E407D7 /* NibRegistrableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124DBCDA23DA9ED200E407D7 /* NibRegistrableView.swift */; };
+		12C880A423DC94DA009FFD57 /* RatingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12C880A223DC94DA009FFD57 /* RatingCollectionViewCell.swift */; };
+		12C880A523DC94DA009FFD57 /* RatingCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 12C880A323DC94DA009FFD57 /* RatingCollectionViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,6 +76,8 @@
 		124DBCD623DA996200E407D7 /* TVShowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowTableViewCell.swift; sourceTree = "<group>"; };
 		124DBCD723DA996200E407D7 /* TVShowTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TVShowTableViewCell.xib; sourceTree = "<group>"; };
 		124DBCDA23DA9ED200E407D7 /* NibRegistrableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibRegistrableView.swift; sourceTree = "<group>"; };
+		12C880A223DC94DA009FFD57 /* RatingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingCollectionViewCell.swift; sourceTree = "<group>"; };
+		12C880A323DC94DA009FFD57 /* RatingCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingCollectionViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -236,6 +240,8 @@
 			children = (
 				0292ED5C23DB77040087BAC7 /* RatingView.swift */,
 				0292ED5D23DB77040087BAC7 /* RatingView.xib */,
+				12C880A223DC94DA009FFD57 /* RatingCollectionViewCell.swift */,
+				12C880A323DC94DA009FFD57 /* RatingCollectionViewCell.xib */,
 				0292ED6223DB7C270087BAC7 /* UIViewController+Rating.swift */,
 			);
 			path = Rating;
@@ -323,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0292ED5F23DB77040087BAC7 /* RatingView.xib in Resources */,
+				12C880A523DC94DA009FFD57 /* RatingCollectionViewCell.xib in Resources */,
 				0292ED3523DA04440087BAC7 /* Localizable.strings in Resources */,
 				028AB33E23D9DCED0098DC2A /* LaunchScreen.storyboard in Resources */,
 				124DBCD923DA996200E407D7 /* TVShowTableViewCell.xib in Resources */,
@@ -351,6 +358,7 @@
 				124DBCD823DA996200E407D7 /* TVShowTableViewCell.swift in Sources */,
 				028AB35C23D9DE240098DC2A /* TVShowsListService.swift in Sources */,
 				028AB33223D9DCE40098DC2A /* AppDelegate.swift in Sources */,
+				12C880A423DC94DA009FFD57 /* RatingCollectionViewCell.swift in Sources */,
 				0292ED6123DB7B2A0087BAC7 /* Device.swift in Sources */,
 				028AB36123D9DEBA0098DC2A /* Dynamic.swift in Sources */,
 				0292ED5E23DB77040087BAC7 /* RatingView.swift in Sources */,

@@ -94,12 +94,36 @@ class TVShowViewControllerTests: XCTestCase {
     }
     
     // MARK: Rating
-    func testShowRateTVShow() {
-        // When
+    func testShowRatingView() {
+        // Given
         viewController.tableView(viewController.tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
+        
+        // When
+        waitForMainDispatchQueue()
         
         // Then
         XCTAssertTrue(viewController.view.hasSubviewOf(type: RatingView.self))
+    }
+    
+    func testRateTVShow() {
+        // Given
+        let selectedRow = 0
+        viewController.tableView(viewController.tableView, didSelectRowAt: IndexPath(row: selectedRow, section: 0))
+        waitForMainDispatchQueue()
+        XCTAssertTrue(viewController.view.hasSubviewOf(type: RatingView.self))
+        
+        // When
+        guard let ratingView = viewController.view.getSubviewOf(type: RatingView.self) as? RatingView else {
+            XCTFail("Could not fin RatingView")
+            return
+        }
+        ratingView.collectionView(ratingView.collectionView, didSelectItemAt: IndexPath(row: 0, section: 0))
+        ratingView.confirmButton.sendActions(for: .touchUpInside)
+        waitForMainDispatchQueue()
+        
+        // Then
+        XCTAssertFalse(viewController.view.hasSubviewOf(type: RatingView.self))
+        XCTAssertEqual(viewModel.ratedRow, selectedRow)
     }
     
     private func waitForMainDispatchQueue() {

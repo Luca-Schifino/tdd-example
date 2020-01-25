@@ -15,5 +15,5 @@ struct TVShow: Decodable, Equatable {
 
 struct TVShowRating: Codable {
     let tvshowId: String
-    let rating: Double
+    let rating: Int
 }

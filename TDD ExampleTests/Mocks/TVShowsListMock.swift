@@ -44,7 +44,7 @@ class TVShowsListViewModelMock: TVShowsListViewModelProtocol {
         TVShow(id: "3", title: "Test 3")
     ]
     var tvshowsRatings: [TVShowRating] = [
-        TVShowRating(tvshowId: "1", rating: 8.9)
+        TVShowRating(tvshowId: "1", rating: 8)
     ]
     
     func setErrorMessage(_ message: String?) {
@@ -60,13 +60,13 @@ class TVShowsListViewModelMock: TVShowsListViewModelProtocol {
     }
     
     var ratedRow: Int?
-    func rateTVShowAtRow(_ row: Int, rating: Double) {
+    func rateTVShowAtRow(_ row: Int, rating: Int) {
         ratedRow = row
     }
     
     let mockedRatingRow = 1
-    let mockedRating = 6.7
-    func tvshowRatingForCellAtRow(_ row: Int) -> Double? {
+    let mockedRating = 6
+    func tvshowRatingForCellAtRow(_ row: Int) -> Int? {
         if row == mockedRatingRow {
             return mockedRating
         }

@@ -18,13 +18,13 @@ final class TVShowsListViewController: UIViewController {
             tableView.dataSource = self
             tableView.delegate = self
             tableView.registerNib(for: TVShowTableViewCell.self)
-            tableView.allowsSelection = false
             tableView.rowHeight = UITableView.automaticDimension
         }
     }
     
     // MARK: Variables
     let viewModel: TVShowsListViewModelProtocol
+    private var selectedIndex = IndexPath()
 
     // MARK: Life Cycle
     init(viewModel: TVShowsListViewModelProtocol) {
@@ -75,6 +75,7 @@ final class TVShowsListViewController: UIViewController {
     }
 }
 
+// MARK: - UITableViewDataSource
 extension TVShowsListViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -89,9 +90,31 @@ extension TVShowsListViewController: UITableViewDataSource {
     }
 }
 
+// MARK: - UITableViewDelegate
 extension TVShowsListViewController: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        // TODO: Show Rating View
+        selectedIndex = indexPath
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.addModalMaskView()
+            self.showRatingView(delegate: self)
+        }
+    }
+}
+
+// MARK: - RatingViewDelegate
+extension TVShowsListViewController: RatingViewDelegate {
+    
+    func willDismissRatingView(withRating rating: Int?) {
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
+            self.removeModalMaskView()
+            self.tableView.deselectRow(at: self.selectedIndex, animated: true)
+        }
+        if let rating = rating {
+            viewModel.rateTVShowAtRow(selectedIndex.row, rating: rating)
+            tableView.reloadData()
+        }
     }
 }

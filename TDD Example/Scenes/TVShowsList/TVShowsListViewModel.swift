@@ -15,8 +15,8 @@ protocol TVShowsListViewModelProtocol: AnyObject {
     var tvshows: [TVShow] { get }
     var tvshowsRatings: [TVShowRating] { get }
     
-    func rateTVShowAtRow(_ row: Int, rating: Double)
-    func tvshowRatingForCellAtRow(_ row: Int) -> Double?
+    func rateTVShowAtRow(_ row: Int, rating: Int)
+    func tvshowRatingForCellAtRow(_ row: Int) -> Int?
 }
 
 class TVShowsListViewModel {
@@ -64,15 +64,16 @@ class TVShowsListViewModel {
     }
 }
 
+// MARK: - TVShowsListViewModelProtocol
 extension TVShowsListViewModel: TVShowsListViewModelProtocol {
     
-    func rateTVShowAtRow(_ row: Int, rating: Double) {
+    func rateTVShowAtRow(_ row: Int, rating: Int) {
         let tvshow = tvshows[row]
         let tvshowRating = TVShowRating(tvshowId: tvshow.id, rating: rating)
         tvshowsRatings.append(tvshowRating)
     }
     
-    func tvshowRatingForCellAtRow(_ row: Int) -> Double? {
+    func tvshowRatingForCellAtRow(_ row: Int) -> Int? {
         return tvshowsRatings.first(where: { $0.tvshowId == tvshows[row].id })?.rating
     }
 }
