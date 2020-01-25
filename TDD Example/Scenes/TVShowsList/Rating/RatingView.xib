@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Montserrat-Regular.ttf">
+            <string>Montserrat-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RatingView" customModule="TDD_Example" customModuleProvider="target">
+            <connections>
+                <outlet property="collectionView" destination="Eq2-fK-nfs" id="61h-dK-qkw"/>
+                <outlet property="confirmButton" destination="XbW-AG-F0b" id="xc3-gB-AdL"/>
+                <outlet property="contentView" destination="iN0-l3-epB" id="mGr-vN-g4b"/>
+                <outlet property="headerView" destination="EXE-yc-KYD" id="D78-wg-QwR"/>
+                <outlet property="ratingLabel" destination="pBX-BD-54z" id="qj3-kH-oUa"/>
+                <outlet property="titleLabel" destination="PfM-Zd-aep" id="cNn-NW-2OY"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="465" height="278"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EXE-yc-KYD">
+                    <rect key="frame" x="0.0" y="0.0" width="465" height="102"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wqX-Ls-0h6">
+                            <rect key="frame" x="208.5" y="12" width="48" height="4"/>
+                            <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="4" id="hfS-EE-LFA"/>
+                                <constraint firstAttribute="width" constant="48" id="iX3-Os-8qp"/>
+                            </constraints>
+                        </view>
+                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="xJD-zz-vW3">
+                            <rect key="frame" x="24" y="40" width="417" height="44"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Rating" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PfM-Zd-aep">
+                                    <rect key="frame" x="0.0" y="0.0" width="417" height="23.5"/>
+                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" ambiguous="YES" text="From 1 to 10 how much did you like this tv show?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pBX-BD-54z">
+                                    <rect key="frame" x="0.0" y="27.5" width="417" height="16.5"/>
+                                    <fontDescription key="fontDescription" name="Montserrat-Regular" family="Montserrat" pointSize="14"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="wqX-Ls-0h6" firstAttribute="centerX" secondItem="EXE-yc-KYD" secondAttribute="centerX" id="BEF-QA-OVJ"/>
+                        <constraint firstAttribute="bottom" secondItem="xJD-zz-vW3" secondAttribute="bottom" constant="18" id="DeJ-0S-bqF"/>
+                        <constraint firstItem="PfM-Zd-aep" firstAttribute="top" secondItem="wqX-Ls-0h6" secondAttribute="bottom" constant="24" id="QpS-qE-HZ0"/>
+                        <constraint firstItem="wqX-Ls-0h6" firstAttribute="top" secondItem="EXE-yc-KYD" secondAttribute="top" constant="12" id="apR-LG-JiU"/>
+                        <constraint firstAttribute="trailing" secondItem="xJD-zz-vW3" secondAttribute="trailing" constant="24" id="jHf-bG-Su1"/>
+                        <constraint firstItem="xJD-zz-vW3" firstAttribute="leading" secondItem="EXE-yc-KYD" secondAttribute="leading" constant="24" id="qee-Rl-6ia"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t92-FG-rwT">
+                    <rect key="frame" x="0.0" y="102" width="465" height="176"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                </view>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Eq2-fK-nfs">
+                    <rect key="frame" x="12" y="126" width="441" height="52"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="52" id="nKY-Pa-6JY"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ehm-Yf-SU0">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XbW-AG-F0b">
+                    <rect key="frame" x="32" y="202" width="401" height="44"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="44" id="8pn-1L-K34"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="confirmAction:" destination="-1" eventType="touchUpInside" id="iKJ-R8-8CQ"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="XbW-AG-F0b" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="32" id="3zK-CF-aA4"/>
+                <constraint firstItem="t92-FG-rwT" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="HAZ-Q0-q5K"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="EXE-yc-KYD" secondAttribute="trailing" id="KZT-Xr-gi6"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="XbW-AG-F0b" secondAttribute="trailing" constant="32" id="NFB-OB-TNO"/>
+                <constraint firstAttribute="bottom" secondItem="t92-FG-rwT" secondAttribute="bottom" id="Wmp-fL-JRF"/>
+                <constraint firstItem="t92-FG-rwT" firstAttribute="top" secondItem="EXE-yc-KYD" secondAttribute="bottom" id="Xdi-4V-eDG"/>
+                <constraint firstItem="EXE-yc-KYD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Y21-1X-w8o"/>
+                <constraint firstItem="Eq2-fK-nfs" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="aIF-2h-FSf"/>
+                <constraint firstItem="XbW-AG-F0b" firstAttribute="top" secondItem="Eq2-fK-nfs" secondAttribute="bottom" constant="24" id="aIM-Vg-Jmg"/>
+                <constraint firstItem="Eq2-fK-nfs" firstAttribute="top" secondItem="EXE-yc-KYD" secondAttribute="bottom" constant="24" id="dZi-Fl-dPT"/>
+                <constraint firstItem="EXE-yc-KYD" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="elb-Bg-DaL"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="Eq2-fK-nfs" secondAttribute="trailing" constant="12" id="gaj-1w-rdk"/>
+                <constraint firstItem="t92-FG-rwT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="qG0-L4-90d"/>
+                <constraint firstAttribute="bottom" secondItem="XbW-AG-F0b" secondAttribute="bottom" constant="32" id="w9r-ll-5r9"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <point key="canvasLocation" x="107.97101449275362" y="172.09821428571428"/>
+        </view>
+    </objects>
+</document>

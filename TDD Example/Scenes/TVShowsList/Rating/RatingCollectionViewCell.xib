@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="RatingCollectionViewCell" id="SDI-gM-Fja" customClass="RatingCollectionViewCell" customModule="TDD_Example" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="92" height="92"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="92" height="92"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wjj-wV-UUa">
+                        <rect key="frame" x="38.5" y="6" width="15" height="15"/>
+                        <color key="backgroundColor" systemColor="separatorColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.26274509800000001" alpha="0.28999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="15" id="Hkj-2J-XSR"/>
+                            <constraint firstAttribute="width" constant="15" id="Y3L-Xe-uJR"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1Q6-P4-kmO">
+                        <rect key="frame" x="42" y="25" width="8" height="20.5"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="1Q6-P4-kmO" firstAttribute="top" secondItem="wjj-wV-UUa" secondAttribute="bottom" constant="4" id="FRW-f5-3JX"/>
+                <constraint firstItem="wjj-wV-UUa" firstAttribute="centerX" secondItem="SDI-gM-Fja" secondAttribute="centerX" id="Jle-Ze-Pdo"/>
+                <constraint firstItem="wjj-wV-UUa" firstAttribute="top" secondItem="SDI-gM-Fja" secondAttribute="top" constant="6" id="nM2-W1-qts"/>
+                <constraint firstItem="1Q6-P4-kmO" firstAttribute="centerX" secondItem="wjj-wV-UUa" secondAttribute="centerX" id="odI-Bl-Cmp"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="QGT-KG-wgs"/>
+            <size key="customSize" width="92" height="92"/>
+            <connections>
+                <outlet property="gradeLabel" destination="1Q6-P4-kmO" id="XdZ-Ay-SpN"/>
+                <outlet property="selectView" destination="wjj-wV-UUa" id="Rwn-a1-82F"/>
+            </connections>
+            <point key="canvasLocation" x="-28.985507246376812" y="154.6875"/>
+        </collectionViewCell>
+    </objects>
+</document>

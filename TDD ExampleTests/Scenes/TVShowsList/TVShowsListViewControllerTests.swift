@@ -33,7 +33,7 @@ class TVShowViewControllerTests: XCTestCase {
         // Then
         XCTAssertTrue(viewModel.loading.isBinded())
         XCTAssertTrue(viewModel.errorMessage.isBinded())
-        XCTAssertTrue(viewModel.tvshowsResultSuccess.isBinded())
+        XCTAssertTrue(viewModel.reloadData.isBinded())
     }
     
     // MARK: Loader
@@ -64,7 +64,7 @@ class TVShowViewControllerTests: XCTestCase {
     // MARK: Cells
     func testNumberOfCells() {
         // Given
-        viewModel.setTVShowsResultSuccess(true)
+        viewModel.setReloadData(true)
         
         // Then
         XCTAssertEqual(viewController.tableView(viewController.tableView, numberOfRowsInSection: 0), viewModel.tvshows.count)
@@ -72,7 +72,7 @@ class TVShowViewControllerTests: XCTestCase {
     
     func testCellsContent() {
         // Given
-        viewModel.setTVShowsResultSuccess(true)
+        viewModel.setReloadData(true)
         
         // Then
         let tvshows = viewModel.tvshows
@@ -83,8 +83,47 @@ class TVShowViewControllerTests: XCTestCase {
                 XCTFail("Couldn't find cell")
                 return
             }
+            if index == viewModel.mockedRatingRow {
+                XCTAssertEqual(cell.ratingLabel.text, "\(viewModel.mockedRating)")
+                XCTAssertFalse(cell.ratingLabel.isHidden)
+            } else {
+                XCTAssertTrue(cell.ratingLabel.isHidden)
+            }
             XCTAssertEqual(cell.titleLabel.text, tvshows[index].title)
         }
+    }
+    
+    // MARK: Rating
+    func testShowRatingView() {
+        // Given
+        viewController.tableView(viewController.tableView, didSelectRowAt: IndexPath(row: 0, section: 0))
+        
+        // When
+        waitForMainDispatchQueue()
+        
+        // Then
+        XCTAssertTrue(viewController.view.hasSubviewOf(type: RatingView.self))
+    }
+    
+    func testRateTVShow() {
+        // Given
+        let selectedRow = 0
+        viewController.tableView(viewController.tableView, didSelectRowAt: IndexPath(row: selectedRow, section: 0))
+        waitForMainDispatchQueue()
+        XCTAssertTrue(viewController.view.hasSubviewOf(type: RatingView.self))
+        
+        // When
+        guard let ratingView = viewController.view.getSubviewOf(type: RatingView.self) as? RatingView else {
+            XCTFail("Could not fin RatingView")
+            return
+        }
+        ratingView.collectionView(ratingView.collectionView, didSelectItemAt: IndexPath(row: 0, section: 0))
+        ratingView.confirmButton.sendActions(for: .touchUpInside)
+        waitForMainDispatchQueue()
+        
+        // Then
+        XCTAssertFalse(viewController.view.hasSubviewOf(type: RatingView.self))
+        XCTAssertEqual(viewModel.ratedRow, selectedRow)
     }
     
     private func waitForMainDispatchQueue() {
