@@ -6,10 +6,13 @@
   Copyright © 2020 lucass. All rights reserved.
 */
 
-"listTitle" = "Favorite TV Shows List";
+"listTitle" = "TV Shows";
 "serviceJsonNotFound" = "TV Shows JSON not found.";
 "serviceDefaultError" = "An error ocurred while fetching TV Shows. Please, try again later.";
 "ratingsStorageDecodeError" = "An error ocurred while fetching saved ratings. Please, try again later.";
 "ratingsStorageEncodeError" = "An error ocurred while saving rating. Please, try again later.";
 "ok" = "Ok";
 "confirm" = "Confirm";
+"randomRatingTitle" = "Random Rating";
+"stopRandomRatingTitle" = "Stop Random Rating";
+"clearRatingsTitle" = "Clear Ratings";
