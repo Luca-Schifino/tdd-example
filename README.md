@@ -10,9 +10,9 @@ Application that lists top favorite tv series. Written using test driven approac
 
 ## Instalation
 
-Just open `TDD Example.xcodeproj` using Xcode 11 or older and run the project.
+Just open `TDD Example.xcodeproj` using Xcode 11 or newer and run the project.
 
 ## Screenshots
 
-![First Page](/screenshots/screenshot-1.png?raw=true)
-![Rating View](/screenshots/screenshot-2.png?raw=true)
+![First Page](/Screenshots/screenshot-1.png?raw=true)
+![Rating View](/Screenshots/screenshot-2.png?raw=true)
