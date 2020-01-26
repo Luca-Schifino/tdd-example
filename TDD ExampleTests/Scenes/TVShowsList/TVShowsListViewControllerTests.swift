@@ -11,17 +11,17 @@ import XCTest
 
 class TVShowViewControllerTests: XCTestCase {
 
-    var viewModel: TVShowsListViewModelMock!
+    var viewModelMock: TVShowsListViewModelMock!
     var viewController: TVShowsListViewController!
     
     override func setUp() {
-        viewModel = TVShowsListViewModelMock()
-        viewController = TVShowsListViewController(viewModel: viewModel)
+        viewModelMock = TVShowsListViewModelMock()
+        viewController = TVShowsListViewController(viewModel: viewModelMock)
         _ = viewController.view
     }
 
     override func tearDown() {
-        viewModel = nil
+        viewModelMock = nil
         viewController = nil
     }
     
@@ -31,15 +31,15 @@ class TVShowViewControllerTests: XCTestCase {
         XCTAssertNotNil(viewController)
         
         // Then
-        XCTAssertTrue(viewModel.loading.isBinded())
-        XCTAssertTrue(viewModel.errorMessage.isBinded())
-        XCTAssertTrue(viewModel.reloadData.isBinded())
+        XCTAssertTrue(viewModelMock.loading.isBinded())
+        XCTAssertTrue(viewModelMock.errorMessage.isBinded())
+        XCTAssertTrue(viewModelMock.reloadData.isBinded())
     }
     
     // MARK: Loader
     func testLoaderAnimating() {
         // Given
-        viewModel.setLoading(true)
+        viewModelMock.setLoading(true)
         
         // When
         waitForMainDispatchQueue()
@@ -51,7 +51,7 @@ class TVShowViewControllerTests: XCTestCase {
     
     func testLoaderStopAnimating() {
         // Given
-        viewModel.setLoading(false)
+        viewModelMock.setLoading(false)
         
         // When
         waitForMainDispatchQueue()
@@ -61,21 +61,53 @@ class TVShowViewControllerTests: XCTestCase {
         XCTAssertTrue(viewController.loader.isHidden)
     }
     
+    // MARK: Navigation Item
+    func testClearAllRatingsAction() {
+        // Given
+        guard let leftBarButtonItem = viewController.navigationItem.leftBarButtonItem,
+            let selector = leftBarButtonItem.action else {
+            XCTFail("Couldn't find leftBarButtonItem with Selector")
+            return
+        }
+        
+        // When
+        viewController.performSelector(onMainThread: selector, with: nil, waitUntilDone: true)
+        
+        // Then
+        XCTAssertTrue(viewModelMock.calledClearAllRatings)
+    }
+    
+    func testRandomRatingAction() {
+        // Given
+        guard let rightBarButtonItem = viewController.navigationItem.rightBarButtonItem,
+            let selector = rightBarButtonItem.action else {
+            XCTFail("Couldn't find rightBarButtonItem with Selector")
+            return
+        }
+        
+        // When
+        viewController.performSelector(onMainThread: selector, with: nil, waitUntilDone: true)
+        
+        // Then
+        XCTAssertTrue(viewModelMock.calledRandomRating)
+        
+    }
+    
     // MARK: Cells
     func testNumberOfCells() {
         // Given
-        viewModel.setReloadData(true)
+        viewModelMock.setReloadData(true)
         
         // Then
-        XCTAssertEqual(viewController.tableView(viewController.tableView, numberOfRowsInSection: 0), viewModel.tvshows.count)
+        XCTAssertEqual(viewController.tableView(viewController.tableView, numberOfRowsInSection: 0), viewModelMock.tvshows.count)
     }
     
     func testCellsContent() {
         // Given
-        viewModel.setReloadData(true)
+        viewModelMock.setReloadData(true)
         
         // Then
-        let tvshows = viewModel.tvshows
+        let tvshows = viewModelMock.tvshows
         for index in 0...tvshows.count-1 {
             guard let cell = viewController.tableView(viewController.tableView,
                                                       cellForRowAt: IndexPath(row: index, section: 0))
@@ -83,8 +115,8 @@ class TVShowViewControllerTests: XCTestCase {
                 XCTFail("Couldn't find cell")
                 return
             }
-            if index == viewModel.mockedRatingRow {
-                XCTAssertEqual(cell.ratingLabel.text, "\(viewModel.mockedRating)")
+            if index == viewModelMock.mockedRatingRow {
+                XCTAssertEqual(cell.ratingLabel.text, "\(viewModelMock.mockedRating)")
                 XCTAssertFalse(cell.ratingLabel.isHidden)
             } else {
                 XCTAssertTrue(cell.ratingLabel.isHidden)
@@ -123,7 +155,7 @@ class TVShowViewControllerTests: XCTestCase {
         
         // Then
         XCTAssertFalse(viewController.view.hasSubviewOf(type: RatingView.self))
-        XCTAssertEqual(viewModel.ratedRow, selectedRow)
+        XCTAssertEqual(viewModelMock.ratedRow, selectedRow)
     }
     
     private func waitForMainDispatchQueue() {
