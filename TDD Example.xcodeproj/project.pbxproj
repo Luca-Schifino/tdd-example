@@ -131,7 +131,6 @@
 		028AB34723D9DCED0098DC2A /* TDD ExampleTests */ = {
 			isa = PBXGroup;
 			children = (
-				12C880AC23DDCF16009FFD57 /* General */,
 				0292ED3A23DA08D40087BAC7 /* Mocks */,
 				028AB36323D9E5550098DC2A /* Scenes */,
 				028AB34A23D9DCED0098DC2A /* Info.plist */,
@@ -152,10 +151,10 @@
 			children = (
 				0292ED5B23DB76A50087BAC7 /* Rating */,
 				0292ED5A23DB768C0087BAC7 /* Cell */,
-				028AB35323D9DE240098DC2A /* TVShowObject.swift */,
 				028AB35423D9DE240098DC2A /* TVShowsListViewController.swift */,
 				028AB35623D9DE240098DC2A /* TVShowsListViewController.xib */,
 				028AB35523D9DE240098DC2A /* TVShowsListViewModel.swift */,
+				028AB35323D9DE240098DC2A /* TVShowObject.swift */,
 				028AB35723D9DE240098DC2A /* TVShowsListService.swift */,
 			);
 			path = TVShowsList;
@@ -165,8 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				028AB33A23D9DCED0098DC2A /* Assets.xcassets */,
-				028AB33C23D9DCED0098DC2A /* LaunchScreen.storyboard */,
 				028AB33F23D9DCED0098DC2A /* Info.plist */,
+				028AB33C23D9DCED0098DC2A /* LaunchScreen.storyboard */,
 				0292ED3423DA04440087BAC7 /* Localizable.strings */,
 				028AB36823D9F3AB0098DC2A /* tvshows.json */,
 			);
@@ -176,8 +175,8 @@
 		028AB36223D9E5420098DC2A /* TVShowsList */ = {
 			isa = PBXGroup;
 			children = (
-				028AB36423D9F19A0098DC2A /* TVShowsListViewModelTests.swift */,
 				028AB36623D9F1AF0098DC2A /* TVShowsListViewControllerTests.swift */,
+				028AB36423D9F19A0098DC2A /* TVShowsListViewModelTests.swift */,
 			);
 			path = TVShowsList;
 			sourceTree = "<group>";
@@ -231,10 +230,10 @@
 		0292ED5B23DB76A50087BAC7 /* Rating */ = {
 			isa = PBXGroup;
 			children = (
-				0292ED5C23DB77040087BAC7 /* RatingView.swift */,
-				0292ED5D23DB77040087BAC7 /* RatingView.xib */,
 				12C880A223DC94DA009FFD57 /* RatingCollectionViewCell.swift */,
 				12C880A323DC94DA009FFD57 /* RatingCollectionViewCell.xib */,
+				0292ED5C23DB77040087BAC7 /* RatingView.swift */,
+				0292ED5D23DB77040087BAC7 /* RatingView.xib */,
 				0292ED6223DB7C270087BAC7 /* UIViewController+Rating.swift */,
 			);
 			path = Rating;
@@ -246,13 +245,6 @@
 				12C880AA23DCDC96009FFD57 /* MarginLabel.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		12C880AC23DDCF16009FFD57 /* General */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = General;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
