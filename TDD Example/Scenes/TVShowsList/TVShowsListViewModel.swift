@@ -16,13 +16,17 @@ protocol TVShowsListViewModelProtocol: AnyObject {
     var tvshowsRatings: [TVShowRating] { get }
     
     func rateTVShowAtRow(_ row: Int, rating: Int)
+    func clearAllRatings()
     func tvshowRatingForCellAtRow(_ row: Int) -> Int?
+    func randomRating()
 }
 
 class TVShowsListViewModel {
     
     // MARK: Variable
     private var service: TVShowsListServiceProtocol
+    private var randomRatingEnabled = false
+    var randomRatingTimer: Timer?
     public var errorMessage: Dynamic<String?> = Dynamic(nil)
     public var loading: Dynamic<Bool> = Dynamic(false)
     public var reloadData: Dynamic<Bool> = Dynamic(false)
@@ -84,6 +88,21 @@ class TVShowsListViewModel {
             errorMessage.value = "serviceJsonNotFound".localized()
         }
     }
+    
+    private func setRandomRatingTimer() {
+        // Setting timer between 0 and 10 seconds from now, so it is easier to wait for ratings to occur
+        let date = Date().addingTimeInterval(TimeInterval(Int.random(in: 0...10)))
+        let timer = Timer(fireAt: date, interval: 0, target: self, selector: #selector(rateRandomTVShow), userInfo: nil, repeats: false)
+        RunLoop.main.add(timer, forMode: .common)
+        randomRatingTimer = timer
+    }
+    
+    @objc private func rateRandomTVShow() {
+        let randomRow = Int.random(in: 0..<tvshows.count)
+        let randomRating = Int.random(in: 1...10)
+        rateTVShowAtRow(randomRow, rating: randomRating)
+        setRandomRatingTimer()
+    }
 }
 
 // MARK: - TVShowsListViewModelProtocol
@@ -105,7 +124,22 @@ extension TVShowsListViewModel: TVShowsListViewModelProtocol {
         }
     }
     
+    func clearAllRatings() {
+        UserDefaultsStorage.removeObject(forKey: .ratings)
+        tvshowsRatings.removeAll()
+        reloadData.value = true
+    }
+    
     func tvshowRatingForCellAtRow(_ row: Int) -> Int? {
         return tvshowsRatings.first(where: { $0.tvshowId == tvshows[row].id })?.rating
+    }
+    
+    func randomRating() {
+        randomRatingEnabled = !randomRatingEnabled
+        if randomRatingEnabled {
+            setRandomRatingTimer()
+        } else {
+            randomRatingTimer?.invalidate()
+        }
     }
 }

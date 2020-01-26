@@ -24,6 +24,7 @@ final class TVShowsListViewController: UIViewController {
     
     // MARK: Variables
     let viewModel: TVShowsListViewModelProtocol
+    var randomRatingBarButtonItem: UIBarButtonItem?
     private var selectedIndex = IndexPath()
 
     // MARK: Life Cycle
@@ -41,6 +42,13 @@ final class TVShowsListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            title: "clearRatingsTitle".localized(),
+            style: .done,
+            target: self,
+            action: #selector(clearRatingsAction)
+        )
+        setupRandomRatingNavigationButton()
         setupBinds()
     }
 
@@ -72,6 +80,33 @@ final class TVShowsListViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }
+    }
+    
+    private func setupRandomRatingNavigationButton() {
+        if let barButtonItem = randomRatingBarButtonItem {
+            let hasRandomRatingTitle = barButtonItem.title == "randomRatingTitle".localized()
+            barButtonItem.title = hasRandomRatingTitle
+                ? "stopRandomRatingTitle".localized()
+                : "randomRatingTitle".localized()
+        } else {
+            let barButtonItem = UIBarButtonItem(
+                title: "randomRatingTitle".localized(),
+                style: .done,
+                target: self,
+                action: #selector(randomRatingAction)
+            )
+            navigationItem.rightBarButtonItem = barButtonItem
+            randomRatingBarButtonItem = barButtonItem
+        }
+    }
+    
+    @objc func randomRatingAction() {
+        setupRandomRatingNavigationButton()
+        viewModel.randomRating()
+    }
+    
+    @objc func clearRatingsAction() {
+        viewModel.clearAllRatings()
     }
 }
 

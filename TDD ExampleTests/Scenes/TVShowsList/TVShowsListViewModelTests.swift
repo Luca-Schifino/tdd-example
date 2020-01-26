@@ -111,4 +111,49 @@ class TVShowListViewModelTests: XCTestCase {
         XCTAssertEqual(viewModel.tvshows, tvshowsAux)
         XCTAssertEqual(try? UserDefaultsStorage.decodeObject(forKey: .ratings), viewModel.tvshowsRatings)
     }
+    
+    func testClearAllRatings() {
+        // Given
+        viewModel.rateTVShowAtRow(2, rating: 3)
+        XCTAssertFalse(viewModel.tvshowsRatings.isEmpty)
+        let preTestStorageRatings = (try? UserDefaultsStorage.decodeObject(forKey: .ratings)) ?? [TVShowRating]()
+        XCTAssertFalse(preTestStorageRatings.isEmpty)
+        
+        // When
+        viewModel.clearAllRatings()
+        
+        // Then
+        XCTAssertTrue(viewModel.tvshowsRatings.isEmpty)
+        let storageRatings = (try? UserDefaultsStorage.decodeObject(forKey: .ratings)) ?? [TVShowRating]()
+        XCTAssertTrue(storageRatings.isEmpty)
+        
+    }
+    
+    // MARK: Random Rating
+    func testStartRandomRating() {
+        // Given
+        let preRandomnessRatings = viewModel.tvshowsRatings
+        
+        // When
+        viewModel.randomRating()
+        viewModel.randomRatingTimer?.fire()
+        
+        // Then
+        XCTAssertTrue(viewModel.randomRatingTimer?.isValid ?? false)
+        XCTAssertNotEqual(viewModel.tvshowsRatings, preRandomnessRatings)
+    }
+    
+    func testStopRandomRating() {
+        // Given
+        viewModel.randomRating()
+        viewModel.randomRatingTimer?.fire()
+        
+        // When
+        let afterRandomnessRatings = viewModel.tvshowsRatings
+        viewModel.randomRating()
+        
+        // Then
+        XCTAssertFalse(viewModel.randomRatingTimer?.isValid ?? false)
+        XCTAssertEqual(viewModel.tvshowsRatings, afterRandomnessRatings)
+    }
 }

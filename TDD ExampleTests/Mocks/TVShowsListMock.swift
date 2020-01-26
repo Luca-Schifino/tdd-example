@@ -72,4 +72,14 @@ class TVShowsListViewModelMock: TVShowsListViewModelProtocol {
         }
         return nil
     }
+    
+    var calledRandomRating = false
+    func randomRating() {
+        calledRandomRating = true
+    }
+    
+    var calledClearAllRatings = false
+    func clearAllRatings() {
+        calledClearAllRatings = true
+    }
 }

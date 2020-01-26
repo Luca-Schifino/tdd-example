@@ -20,14 +20,12 @@
 		028AB36523D9F19A0098DC2A /* TVShowsListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028AB36423D9F19A0098DC2A /* TVShowsListViewModelTests.swift */; };
 		028AB36723D9F1AF0098DC2A /* TVShowsListViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 028AB36623D9F1AF0098DC2A /* TVShowsListViewControllerTests.swift */; };
 		028AB36923D9F3AB0098DC2A /* tvshows.json in Resources */ = {isa = PBXBuildFile; fileRef = 028AB36823D9F3AB0098DC2A /* tvshows.json */; };
-		0292ED3323D9FD030087BAC7 /* Decoder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0292ED3223D9FD030087BAC7 /* Decoder.swift */; };
 		0292ED3523DA04440087BAC7 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0292ED3423DA04440087BAC7 /* Localizable.strings */; };
 		0292ED3923DA04DE0087BAC7 /* String+Localized.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0292ED3823DA04DE0087BAC7 /* String+Localized.swift */; };
 		0292ED3C23DA08FE0087BAC7 /* TVShowsListMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0292ED3B23DA08FE0087BAC7 /* TVShowsListMock.swift */; };
 		0292ED5923DB76640087BAC7 /* UIView+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0292ED5823DB76640087BAC7 /* UIView+Extension.swift */; };
 		0292ED5E23DB77040087BAC7 /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0292ED5C23DB77040087BAC7 /* RatingView.swift */; };
 		0292ED5F23DB77040087BAC7 /* RatingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0292ED5D23DB77040087BAC7 /* RatingView.xib */; };
-		0292ED6123DB7B2A0087BAC7 /* Device.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0292ED6023DB7B2A0087BAC7 /* Device.swift */; };
 		0292ED6323DB7C270087BAC7 /* UIViewController+Rating.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0292ED6223DB7C270087BAC7 /* UIViewController+Rating.swift */; };
 		124DBCD823DA996200E407D7 /* TVShowTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124DBCD623DA996200E407D7 /* TVShowTableViewCell.swift */; };
 		124DBCD923DA996200E407D7 /* TVShowTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 124DBCD723DA996200E407D7 /* TVShowTableViewCell.xib */; };
@@ -66,14 +64,12 @@
 		028AB36423D9F19A0098DC2A /* TVShowsListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsListViewModelTests.swift; sourceTree = "<group>"; };
 		028AB36623D9F1AF0098DC2A /* TVShowsListViewControllerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsListViewControllerTests.swift; sourceTree = "<group>"; };
 		028AB36823D9F3AB0098DC2A /* tvshows.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = tvshows.json; sourceTree = "<group>"; };
-		0292ED3223D9FD030087BAC7 /* Decoder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Decoder.swift; sourceTree = "<group>"; };
 		0292ED3423DA04440087BAC7 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		0292ED3823DA04DE0087BAC7 /* String+Localized.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Localized.swift"; sourceTree = "<group>"; };
 		0292ED3B23DA08FE0087BAC7 /* TVShowsListMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowsListMock.swift; sourceTree = "<group>"; };
 		0292ED5823DB76640087BAC7 /* UIView+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Extension.swift"; sourceTree = "<group>"; };
 		0292ED5C23DB77040087BAC7 /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		0292ED5D23DB77040087BAC7 /* RatingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RatingView.xib; sourceTree = "<group>"; };
-		0292ED6023DB7B2A0087BAC7 /* Device.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Device.swift; sourceTree = "<group>"; };
 		0292ED6223DB7C270087BAC7 /* UIViewController+Rating.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Rating.swift"; sourceTree = "<group>"; };
 		124DBCD623DA996200E407D7 /* TVShowTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TVShowTableViewCell.swift; sourceTree = "<group>"; };
 		124DBCD723DA996200E407D7 /* TVShowTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TVShowTableViewCell.xib; sourceTree = "<group>"; };
@@ -155,10 +151,10 @@
 			children = (
 				0292ED5B23DB76A50087BAC7 /* Rating */,
 				0292ED5A23DB768C0087BAC7 /* Cell */,
-				028AB35323D9DE240098DC2A /* TVShowObject.swift */,
 				028AB35423D9DE240098DC2A /* TVShowsListViewController.swift */,
 				028AB35623D9DE240098DC2A /* TVShowsListViewController.xib */,
 				028AB35523D9DE240098DC2A /* TVShowsListViewModel.swift */,
+				028AB35323D9DE240098DC2A /* TVShowObject.swift */,
 				028AB35723D9DE240098DC2A /* TVShowsListService.swift */,
 			);
 			path = TVShowsList;
@@ -168,8 +164,8 @@
 			isa = PBXGroup;
 			children = (
 				028AB33A23D9DCED0098DC2A /* Assets.xcassets */,
-				028AB33C23D9DCED0098DC2A /* LaunchScreen.storyboard */,
 				028AB33F23D9DCED0098DC2A /* Info.plist */,
+				028AB33C23D9DCED0098DC2A /* LaunchScreen.storyboard */,
 				0292ED3423DA04440087BAC7 /* Localizable.strings */,
 				028AB36823D9F3AB0098DC2A /* tvshows.json */,
 			);
@@ -179,8 +175,8 @@
 		028AB36223D9E5420098DC2A /* TVShowsList */ = {
 			isa = PBXGroup;
 			children = (
-				028AB36423D9F19A0098DC2A /* TVShowsListViewModelTests.swift */,
 				028AB36623D9F1AF0098DC2A /* TVShowsListViewControllerTests.swift */,
+				028AB36423D9F19A0098DC2A /* TVShowsListViewModelTests.swift */,
 			);
 			path = TVShowsList;
 			sourceTree = "<group>";
@@ -198,8 +194,6 @@
 			children = (
 				12C880A923DCDC85009FFD57 /* Views */,
 				0292ED3723DA04C10087BAC7 /* Extensions */,
-				0292ED3223D9FD030087BAC7 /* Decoder.swift */,
-				0292ED6023DB7B2A0087BAC7 /* Device.swift */,
 				028AB36023D9DEBA0098DC2A /* Dynamic.swift */,
 				124DBCDA23DA9ED200E407D7 /* NibRegistrableView.swift */,
 				12C880A723DCB215009FFD57 /* UserDefaultsStorage.swift */,
@@ -236,10 +230,10 @@
 		0292ED5B23DB76A50087BAC7 /* Rating */ = {
 			isa = PBXGroup;
 			children = (
-				0292ED5C23DB77040087BAC7 /* RatingView.swift */,
-				0292ED5D23DB77040087BAC7 /* RatingView.xib */,
 				12C880A223DC94DA009FFD57 /* RatingCollectionViewCell.swift */,
 				12C880A323DC94DA009FFD57 /* RatingCollectionViewCell.xib */,
+				0292ED5C23DB77040087BAC7 /* RatingView.swift */,
+				0292ED5D23DB77040087BAC7 /* RatingView.xib */,
 				0292ED6223DB7C270087BAC7 /* UIViewController+Rating.swift */,
 			);
 			path = Rating;
@@ -366,11 +360,9 @@
 				028AB35C23D9DE240098DC2A /* TVShowsListService.swift in Sources */,
 				028AB33223D9DCE40098DC2A /* AppDelegate.swift in Sources */,
 				12C880A423DC94DA009FFD57 /* RatingCollectionViewCell.swift in Sources */,
-				0292ED6123DB7B2A0087BAC7 /* Device.swift in Sources */,
 				028AB36123D9DEBA0098DC2A /* Dynamic.swift in Sources */,
 				0292ED5E23DB77040087BAC7 /* RatingView.swift in Sources */,
 				0292ED5923DB76640087BAC7 /* UIView+Extension.swift in Sources */,
-				0292ED3323D9FD030087BAC7 /* Decoder.swift in Sources */,
 				028AB35A23D9DE240098DC2A /* TVShowsListViewModel.swift in Sources */,
 				0292ED6323DB7C270087BAC7 /* UIViewController+Rating.swift in Sources */,
 				124DBCDB23DA9ED200E407D7 /* NibRegistrableView.swift in Sources */,
